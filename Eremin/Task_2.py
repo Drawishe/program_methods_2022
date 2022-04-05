@@ -233,5 +233,5 @@ create_graph(arr,arr5,'graph5','Автомат пересечения дорог
 # print(type(arr4.shape));
 # print(arr4.shape[0]);
 # Pdoc: python -m pdoc --html . --output-dir html/ --force
-# Pdoc single: python -m pdoc --html ./Task_2.py --force
+# Pdoc single: python -m pdoc --html Eremin/Task_2.py --output-dir . --force
 # Pdoc group: python -m pdoc --html . --force
