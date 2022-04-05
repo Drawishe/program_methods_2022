@@ -60,13 +60,11 @@ def arrZero(i,j,z):
     return arr
 
 
-def machArr():
+def machArr(arr):
     &#34;&#34;&#34;
     **Заполняет автомат 1 A&#39;**   
     &#34;&#34;&#34;
     # arr
-    # Создание массива под автомат А&#39;
-    arr = arrZero(5,5,3)
     # Добавление весов и направлений в автомат А&#39;, направления указаны от строки к столбцам,
     # q1&#39;=0 элементу массива, q5&#39;=4 элементу массива
     # К каждому весу прибавлена +1
@@ -88,13 +86,11 @@ def machArr():
     arr[4][4][0] = 1
     return arr
 
-def machArr2():
+def machArr2(arr2):
     &#34;&#34;&#34;
     **Заполняет автомат 2 A&#39;&#39;**   
     &#34;&#34;&#34;
     # arr2
-    # Создание массива под автомат А&#34;
-    arr2 = arrZero(4, 4, 3)
     # Добавление весов и направлений в автомат А&#34;, направления указаны от строки к столбцам,
     # q1&#34;=0 элементу массива, q4&#34;=3 элементу массива
     # К каждому весу прибавлена +1
@@ -113,14 +109,14 @@ def machArr2():
     arr2[3][3][1] = 2
     return arr2
 
-def machArr3(arr):
+def machArr3(arr3):
     &#34;&#34;&#34;
     **Заполняет автомат 3 &#34;Объединение двух автоматов&#34;**   
     &#34;&#34;&#34;
     # Объединение автоматов
     # Объединение автоматов - добавление новых дорог к уже имеющемуся A&#39;
     
-    arr3 = arr
+    
     # arr3
     arr3[0][3][0] = 3
     arr3[1][1][0] = 1
@@ -135,14 +131,11 @@ def machArr3(arr):
 &#34;&#34;&#34;
 Пересечение двух автоматов
 &#34;&#34;&#34;
-def machArr4():
+def machArr4(arr4):
     &#34;&#34;&#34;
     **Заполняет автомат 4 &#34;Пересечение двух автоматов&#34;**   
     &#34;&#34;&#34;
     # arr4
-    # Пересечение языков двух автоматов (дороги и веса)
-    arr4 = arrZero(4,4,3)
-
     arr4[0][1][0] = 1
     arr4[0][2][0] = 2
     arr4[1][3][0] = 3
@@ -151,14 +144,11 @@ def machArr4():
     return arr4
 
 
-def machArr5():
+def machArr5(arr5):
     &#34;&#34;&#34;
     **Заполняет автомат 5 &#34;Пересечение двух автоматов (2 способ)&#34;**
     &#34;&#34;&#34;
     # arr5
-    # Пересечение языков двух автоматов (дороги)
-    arr5 = arrZero(4,4,3)
-
     arr5[0][1][0] = 1
     arr5[0][2][0] = 2
     arr5[1][3][0] = 3
@@ -277,23 +267,32 @@ def begin():
     &#34;&#34;&#34;
     **Начало работы программы**
     &#34;&#34;&#34;
-    arr = machArr()
+    # Создание массива под автомат А&#39;
+    arr = arrZero(5,5,3)
+    arr = machArr(arr)
     # Отрисовка графа первой машины
     machine_A1(arr,arr)
 
-    arr2 = machArr2()
+    # Создание массива под автомат А&#34;
+    arr2 = arrZero(4, 4, 3)
+    arr2 = machArr2(arr2)
     # Отрисовка графа второй машины
     machine_A2(arr,arr2)
 
+    # Объединение языков двух автоматов
     arr3 = machArr3(arr)
     # Отрисовка графа объединения автоматов
     create_graph(arr,arr3,&#39;graph3&#39;,&#39;Объединенные автоматы&#39;)
 
-    arr4 = machArr4()
+    # Пересечение языков двух автоматов (дороги и веса)
+    arr4 = arrZero(4,4,3)
+    arr4 = machArr4(arr4)
     # Отрисовка автомата пересечения дорог и весов
     create_graph(arr,arr4,&#39;graph4&#39;,&#39;Автомат пересечения дорог и весов&#39;)
 
-    arr5 = machArr5()
+    # Пересечение языков двух автоматов (дороги)
+    arr5 = arrZero(4,4,3)
+    arr5 = machArr5(arr5)
     # Отрисовка автомат пересечения дорог
     create_graph(arr,arr5,&#39;graph5&#39;,&#39;Автомат пересечения дорог&#39;)
 
@@ -343,23 +342,32 @@ begin()
     &#34;&#34;&#34;
     **Начало работы программы**
     &#34;&#34;&#34;
-    arr = machArr()
+    # Создание массива под автомат А&#39;
+    arr = arrZero(5,5,3)
+    arr = machArr(arr)
     # Отрисовка графа первой машины
     machine_A1(arr,arr)
 
-    arr2 = machArr2()
+    # Создание массива под автомат А&#34;
+    arr2 = arrZero(4, 4, 3)
+    arr2 = machArr2(arr2)
     # Отрисовка графа второй машины
     machine_A2(arr,arr2)
 
+    # Объединение языков двух автоматов
     arr3 = machArr3(arr)
     # Отрисовка графа объединения автоматов
     create_graph(arr,arr3,&#39;graph3&#39;,&#39;Объединенные автоматы&#39;)
 
-    arr4 = machArr4()
+    # Пересечение языков двух автоматов (дороги и веса)
+    arr4 = arrZero(4,4,3)
+    arr4 = machArr4(arr4)
     # Отрисовка автомата пересечения дорог и весов
     create_graph(arr,arr4,&#39;graph4&#39;,&#39;Автомат пересечения дорог и весов&#39;)
 
-    arr5 = machArr5()
+    # Пересечение языков двух автоматов (дороги)
+    arr5 = arrZero(4,4,3)
+    arr5 = machArr5(arr5)
     # Отрисовка автомат пересечения дорог
     create_graph(arr,arr5,&#39;graph5&#39;,&#39;Автомат пересечения дорог&#39;)</code></pre>
 </details>
@@ -419,7 +427,7 @@ begin()
 </details>
 </dd>
 <dt id="Task_2.machArr"><code class="name flex">
-<span>def <span class="ident">machArr</span></span>(<span>)</span>
+<span>def <span class="ident">machArr</span></span>(<span>arr)</span>
 </code></dt>
 <dd>
 <div class="desc"><p><strong>Заполняет автомат 1 A'</strong></p></div>
@@ -427,13 +435,11 @@ begin()
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def machArr():
+<pre><code class="python">def machArr(arr):
     &#34;&#34;&#34;
     **Заполняет автомат 1 A&#39;**   
     &#34;&#34;&#34;
     # arr
-    # Создание массива под автомат А&#39;
-    arr = arrZero(5,5,3)
     # Добавление весов и направлений в автомат А&#39;, направления указаны от строки к столбцам,
     # q1&#39;=0 элементу массива, q5&#39;=4 элементу массива
     # К каждому весу прибавлена +1
@@ -457,7 +463,7 @@ begin()
 </details>
 </dd>
 <dt id="Task_2.machArr2"><code class="name flex">
-<span>def <span class="ident">machArr2</span></span>(<span>)</span>
+<span>def <span class="ident">machArr2</span></span>(<span>arr2)</span>
 </code></dt>
 <dd>
 <div class="desc"><p><strong>Заполняет автомат 2 A''</strong></p></div>
@@ -465,13 +471,11 @@ begin()
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def machArr2():
+<pre><code class="python">def machArr2(arr2):
     &#34;&#34;&#34;
     **Заполняет автомат 2 A&#39;&#39;**   
     &#34;&#34;&#34;
     # arr2
-    # Создание массива под автомат А&#34;
-    arr2 = arrZero(4, 4, 3)
     # Добавление весов и направлений в автомат А&#34;, направления указаны от строки к столбцам,
     # q1&#34;=0 элементу массива, q4&#34;=3 элементу массива
     # К каждому весу прибавлена +1
@@ -492,7 +496,7 @@ begin()
 </details>
 </dd>
 <dt id="Task_2.machArr3"><code class="name flex">
-<span>def <span class="ident">machArr3</span></span>(<span>arr)</span>
+<span>def <span class="ident">machArr3</span></span>(<span>arr3)</span>
 </code></dt>
 <dd>
 <div class="desc"><p><strong>Заполняет автомат 3 "Объединение двух автоматов"</strong></p></div>
@@ -500,14 +504,14 @@ begin()
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def machArr3(arr):
+<pre><code class="python">def machArr3(arr3):
     &#34;&#34;&#34;
     **Заполняет автомат 3 &#34;Объединение двух автоматов&#34;**   
     &#34;&#34;&#34;
     # Объединение автоматов
     # Объединение автоматов - добавление новых дорог к уже имеющемуся A&#39;
     
-    arr3 = arr
+    
     # arr3
     arr3[0][3][0] = 3
     arr3[1][1][0] = 1
@@ -521,7 +525,7 @@ begin()
 </details>
 </dd>
 <dt id="Task_2.machArr4"><code class="name flex">
-<span>def <span class="ident">machArr4</span></span>(<span>)</span>
+<span>def <span class="ident">machArr4</span></span>(<span>arr4)</span>
 </code></dt>
 <dd>
 <div class="desc"><p><strong>Заполняет автомат 4 "Пересечение двух автоматов"</strong></p></div>
@@ -529,14 +533,11 @@ begin()
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def machArr4():
+<pre><code class="python">def machArr4(arr4):
     &#34;&#34;&#34;
     **Заполняет автомат 4 &#34;Пересечение двух автоматов&#34;**   
     &#34;&#34;&#34;
     # arr4
-    # Пересечение языков двух автоматов (дороги и веса)
-    arr4 = arrZero(4,4,3)
-
     arr4[0][1][0] = 1
     arr4[0][2][0] = 2
     arr4[1][3][0] = 3
@@ -546,7 +547,7 @@ begin()
 </details>
 </dd>
 <dt id="Task_2.machArr5"><code class="name flex">
-<span>def <span class="ident">machArr5</span></span>(<span>)</span>
+<span>def <span class="ident">machArr5</span></span>(<span>arr5)</span>
 </code></dt>
 <dd>
 <div class="desc"><p><strong>Заполняет автомат 5 "Пересечение двух автоматов (2 способ)"</strong></p></div>
@@ -554,14 +555,11 @@ begin()
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def machArr5():
+<pre><code class="python">def machArr5(arr5):
     &#34;&#34;&#34;
     **Заполняет автомат 5 &#34;Пересечение двух автоматов (2 способ)&#34;**
     &#34;&#34;&#34;
     # arr5
-    # Пересечение языков двух автоматов (дороги)
-    arr5 = arrZero(4,4,3)
-
     arr5[0][1][0] = 1
     arr5[0][2][0] = 2
     arr5[1][3][0] = 3
