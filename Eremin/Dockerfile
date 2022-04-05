@@ -12,6 +12,7 @@ COPY . .
 RUN apt update
 RUN apt install graphviz -y
 
-RUN pip3 install matplotlib numpy graphviz pydot
+RUN pip3 install matplotlib numpy graphviz pydot os pdoc3
+RUN python -m pdoc --html ./Task_2.py --force
 
 CMD ["python", "Task_2.py"]
