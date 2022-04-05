@@ -1,3 +1,15 @@
+""" 
+# **Документация к заданию №3 из темы "Конечные автоматы"**
+# **Выполнил студент уч.гр. 181-331 Фурман Кирилл**
+## **Данный алгоритм реализует:**
+-*функцию дополнения языка для заданного автомата*
+
+
+## **Содержание алгоритма:**
+"""
+
+
+
 # Импорты: 
 import matplotlib.pyplot as plt
 import numpy as np
@@ -7,6 +19,11 @@ from graphviz import Digraph
 
 
 def matrix_change(arr):
+    """
+
+    **Функция заполнения матрицы дорог и весов для нужного нам конечного автомата**
+
+    """
     arr[0][1][0]=1
     arr[0][1][1]=3
     arr[0][2][0]=2
@@ -24,7 +41,17 @@ def matrix_change(arr):
     arr[4][4][0]=1
     return(arr)
 
+def make_peaks(peak):
+    """
+    **Функция заполнения конечных состояний стоковыми значениями**
+    """
+    peak=[0,0,1,0,1]
+    return(peak)
+
 def peak_reverse(peak):
+    """
+    **Функция изменения конечных состояний в заданном автомате**
+    """
     for i in range(0,5):
         if peak[i] == 1:
             peak[i]=0
@@ -32,6 +59,30 @@ def peak_reverse(peak):
             peak[i]=1
     return(peak)
 
+def make_graph(num,arr,graph1,colors,peak):
+    """
+    **Функция отрисовки графа**
+    """
+    for i in range(0,5):
+        if peak[i] == 1:
+            graph1.node(f'{i}',f'q{i+1}',fillcolor="red",style="filled")
+        else:
+            graph1.node(f'{i}',f'q{i+1}')
+    # Цикл заполнения переходов
+
+    for i in range(0,5):
+        for j in range(0,5):
+            for z in range(0,3):
+                if arr[i][j][z] != 0:
+                    temp = arr[i][j][z]
+                    temp = temp-1
+                    graph1.edge(f'{i}',f'{j}',f'{temp}')
+    
+    graph1.save(f'graph{num}.dot', None)
+    (graph1,) = pydot.graph_from_dot_file(f'graph{num}.dot')
+    graph1.write_png(f'graph{num}.png')
+    # display(Image(filename='graph1.png'))
+    os.remove(f'graph{num}.dot')
 
 # Создание массива под автомат А'
 arr=np.zeros(75, int).reshape(5,5,3)
@@ -53,7 +104,10 @@ print(arr)
 graph1= Digraph(comment="Автомат А'")
 # Создание вершин q1-q5
 colors=['red']
-
+peak=np.zeros(5,int)
+peak=make_peaks(peak)
+num=int(1)
+make_graph(num,arr,graph1,colors,peak)
 
 
 
@@ -64,81 +118,12 @@ colors=['red']
 # e=int(input('q5 конечное состояние? 1 - да, 0 - нет: '))
 
 # Заполнение стоковыми значениями
-peak=np.zeros(5,int)
-peak=[0,0,1,0,1]
-print(peak)
-# a=0
-# b=0
-# c=1
-# d=0
-# e=1
-
-for i in range(0,5):
-    if peak[i] == 1:
-        graph1.node(f'{i}',f'q{i+1}',fillcolor="red",style="filled")
-    else:
-        graph1.node(f'{i}',f'q{i+1}')
-
-
-    
-
-# Цикл заполнения переходов
-
-for i in range(0,5):
-    for j in range(0,5):
-        for z in range(0,3):
-            if arr[i][j][z] != 0:
-                temp = arr[i][j][z]
-                temp = temp-1
-                graph1.edge(f'{i}',f'{j}',f'{temp}')
-                
-# print(graph1.source) 
-
-graph1.save('graph1.dot', None)
-(graph1,) = pydot.graph_from_dot_file('graph1.dot')
-graph1.write_png('graph1.png')
-# display(Image(filename='graph1.png'))
-os.remove('graph1.dot')
-
-# print('Вывод массива: ')
-# print(arr)
-
-
 # Отрисовка автомата А' с дополнененным языком
 graph1= Digraph(comment="Автомат А'")
 # Создание вершин q1-q5
-colors=['red']
-
+# colors=['red']
 peak_reverse(peak)
-
-for i in range(0,5):
-    if peak[i] == 1:
-        graph1.node(f'{i}',f'q{i+1}',fillcolor="red",style="filled")
-    else:
-        graph1.node(f'{i}',f'q{i+1}')
-
-print(peak)
-    
-# Цикл заполнения переходов
-
-for i in range(0,5):
-    for j in range(0,5):
-        for z in range(0,3):
-            if arr[i][j][z] != 0:
-                temp = arr[i][j][z]
-                temp = temp-1
-                graph1.edge(f'{i}',f'{j}',f'{temp}')
-                
-
-
-# print(graph1.source) 
-graph1.save('graph2.dot', None)
-(graph1,) = pydot.graph_from_dot_file('graph2.dot')
-graph1.write_png('graph2.png')
-os.remove('graph2.dot')
-# print('Вывод массива: ')
-# print(arr)
-
-
+num=int(2)
+make_graph(num,arr,graph1,colors,peak)
 
 print('Завершение программы')
