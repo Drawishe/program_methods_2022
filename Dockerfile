@@ -14,4 +14,4 @@ RUN apt install graphviz -y
 
 RUN pip3 install matplotlib numpy graphviz pydot
 
-CMD ["python", "task3.py"]
+CMD ["python", "main.py"]

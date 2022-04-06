@@ -120,80 +120,55 @@ def make_graph(num,arr,graph1,colors,peak):
     # display(Image(filename=&#39;graph1.png&#39;))
     os.remove(f&#39;graph{num}.dot&#39;)
 
-# Создание массива под автомат А&#39;
-arr=np.zeros(75, int).reshape(5,5,3)
-print(&#39;Вывод нулевого массива: &#39;)
-print(arr)
-print(&#39;Старт программы&#39;)
 
 
-# Добавление весов и направлений в автомат А&#39;, направления указаны от строки к столбцам, 
-# q1&#39;=0 элементу массива, q5&#39;=4 элементу массива
-# К каждому весу прибавлена +1
-matrix_change(arr)
-
-print(&#39;Вывод заполненного массива: &#39;)
-print(arr)
-
-# Отрисовка автомата А&#39;, выбор финальных состояний
-
-graph1= Digraph(comment=&#34;Автомат А&#39;&#34;)
-# Создание вершин q1-q5
-colors=[&#39;red&#39;]
-peak=np.zeros(5,int)
-peak=make_peaks(peak)
-num=int(1)
-make_graph(num,arr,graph1,colors,peak)
+def main():
+    &#34;&#34;&#34;
+    **Основная функция работы программы: **
+    &#34;&#34;&#34;
+    # Создание массива под автомат А&#39;
+    arr=np.zeros(75, int).reshape(5,5,3)
+    print(&#39;Вывод нулевого массива: &#39;)
+    print(arr)
+    print(&#39;Старт программы&#39;)
 
 
+    # Добавление весов и направлений в автомат А&#39;, направления указаны от строки к столбцам, 
+    # q1&#39;=0 элементу массива, q5&#39;=4 элементу массива
+    # К каждому весу прибавлена +1
+    matrix_change(arr)
 
-# a=int(input(&#39;q1 конечное состояние? 1 - да, 0 - нет: &#39;))
-# b=int(input(&#39;q2 конечное состояние? 1 - да, 0 - нет: &#39;))
-# c=int(input(&#39;q3 конечное состояние? 1 - да, 0 - нет: &#39;))
-# d=int(input(&#39;q4 конечное состояние? 1 - да, 0 - нет: &#39;))
-# e=int(input(&#39;q5 конечное состояние? 1 - да, 0 - нет: &#39;))
+    print(&#39;Вывод заполненного массива: &#39;)
+    print(arr)
 
-# Заполнение стоковыми значениями
-# Отрисовка автомата А&#39; с дополнененным языком
-graph1= Digraph(comment=&#34;Автомат А&#39;&#34;)
-# Создание вершин q1-q5
-# colors=[&#39;red&#39;]
-peak_reverse(peak)
-num=int(2)
-make_graph(num,arr,graph1,colors,peak)
+    # Отрисовка автомата А&#39;, выбор финальных состояний
 
-
-# for i in range(0,5):
-#     if peak[i] == 1:
-#         graph1.node(f&#39;{i}&#39;,f&#39;q{i+1}&#39;,fillcolor=&#34;red&#34;,style=&#34;filled&#34;)
-#     else:
-#         graph1.node(f&#39;{i}&#39;,f&#39;q{i+1}&#39;)
-
-# print(peak)
-    
-# Цикл заполнения переходов
-
-# for i in range(0,5):
-#     for j in range(0,5):
-#         for z in range(0,3):
-#             if arr[i][j][z] != 0:
-#                 temp = arr[i][j][z]
-#                 temp = temp-1
-#                 graph1.edge(f&#39;{i}&#39;,f&#39;{j}&#39;,f&#39;{temp}&#39;)
-                
-
-
-# print(graph1.source) 
-# graph1.save(&#39;graph2.dot&#39;, None)
-# (graph1,) = pydot.graph_from_dot_file(&#39;graph2.dot&#39;)
-# graph1.write_png(&#39;graph2.png&#39;)
-# os.remove(&#39;graph2.dot&#39;)
-# print(&#39;Вывод массива: &#39;)
-# print(arr)
+    graph1= Digraph(comment=&#34;Автомат А&#39;&#34;)
+    # Создание вершин q1-q5
+    colors=[&#39;red&#39;]
+    peak=np.zeros(5,int)
+    peak=make_peaks(peak)
+    num=int(1)
+    make_graph(num,arr,graph1,colors,peak)
 
 
 
-print(&#39;Завершение программы&#39;)</code></pre>
+    # a=int(input(&#39;q1 конечное состояние? 1 - да, 0 - нет: &#39;))
+    # b=int(input(&#39;q2 конечное состояние? 1 - да, 0 - нет: &#39;))
+    # c=int(input(&#39;q3 конечное состояние? 1 - да, 0 - нет: &#39;))
+    # d=int(input(&#39;q4 конечное состояние? 1 - да, 0 - нет: &#39;))
+    # e=int(input(&#39;q5 конечное состояние? 1 - да, 0 - нет: &#39;))
+
+    # Заполнение стоковыми значениями
+    # Отрисовка автомата А&#39; с дополнененным языком
+    graph1= Digraph(comment=&#34;Автомат А&#39;&#34;)
+    # Создание вершин q1-q5
+    # colors=[&#39;red&#39;]
+    peak_reverse(peak)
+    num=int(2)
+    make_graph(num,arr,graph1,colors,peak)
+
+    print(&#39;Завершение программы&#39;)</code></pre>
 </details>
 </section>
 <section>
@@ -203,6 +178,64 @@ print(&#39;Завершение программы&#39;)</code></pre>
 <section>
 <h2 class="section-title" id="header-functions">Functions</h2>
 <dl>
+<dt id="task3.main"><code class="name flex">
+<span>def <span class="ident">main</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p><strong>Основная функция работы программы: </strong></p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def main():
+    &#34;&#34;&#34;
+    **Основная функция работы программы: **
+    &#34;&#34;&#34;
+    # Создание массива под автомат А&#39;
+    arr=np.zeros(75, int).reshape(5,5,3)
+    print(&#39;Вывод нулевого массива: &#39;)
+    print(arr)
+    print(&#39;Старт программы&#39;)
+
+
+    # Добавление весов и направлений в автомат А&#39;, направления указаны от строки к столбцам, 
+    # q1&#39;=0 элементу массива, q5&#39;=4 элементу массива
+    # К каждому весу прибавлена +1
+    matrix_change(arr)
+
+    print(&#39;Вывод заполненного массива: &#39;)
+    print(arr)
+
+    # Отрисовка автомата А&#39;, выбор финальных состояний
+
+    graph1= Digraph(comment=&#34;Автомат А&#39;&#34;)
+    # Создание вершин q1-q5
+    colors=[&#39;red&#39;]
+    peak=np.zeros(5,int)
+    peak=make_peaks(peak)
+    num=int(1)
+    make_graph(num,arr,graph1,colors,peak)
+
+
+
+    # a=int(input(&#39;q1 конечное состояние? 1 - да, 0 - нет: &#39;))
+    # b=int(input(&#39;q2 конечное состояние? 1 - да, 0 - нет: &#39;))
+    # c=int(input(&#39;q3 конечное состояние? 1 - да, 0 - нет: &#39;))
+    # d=int(input(&#39;q4 конечное состояние? 1 - да, 0 - нет: &#39;))
+    # e=int(input(&#39;q5 конечное состояние? 1 - да, 0 - нет: &#39;))
+
+    # Заполнение стоковыми значениями
+    # Отрисовка автомата А&#39; с дополнененным языком
+    graph1= Digraph(comment=&#34;Автомат А&#39;&#34;)
+    # Создание вершин q1-q5
+    # colors=[&#39;red&#39;]
+    peak_reverse(peak)
+    num=int(2)
+    make_graph(num,arr,graph1,colors,peak)
+
+    print(&#39;Завершение программы&#39;)</code></pre>
+</details>
+</dd>
 <dt id="task3.make_graph"><code class="name flex">
 <span>def <span class="ident">make_graph</span></span>(<span>num, arr, graph1, colors, peak)</span>
 </code></dt>
@@ -329,6 +362,7 @@ print(&#39;Завершение программы&#39;)</code></pre>
 <ul id="index">
 <li><h3><a href="#header-functions">Functions</a></h3>
 <ul class="">
+<li><code><a title="task3.main" href="#task3.main">main</a></code></li>
 <li><code><a title="task3.make_graph" href="#task3.make_graph">make_graph</a></code></li>
 <li><code><a title="task3.make_peaks" href="#task3.make_peaks">make_peaks</a></code></li>
 <li><code><a title="task3.matrix_change" href="#task3.matrix_change">matrix_change</a></code></li>

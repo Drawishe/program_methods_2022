@@ -84,46 +84,52 @@ def make_graph(num,arr,graph1,colors,peak):
     # display(Image(filename='graph1.png'))
     os.remove(f'graph{num}.dot')
 
-# Создание массива под автомат А'
-arr=np.zeros(75, int).reshape(5,5,3)
-print('Вывод нулевого массива: ')
-print(arr)
-print('Старт программы')
 
 
-# Добавление весов и направлений в автомат А', направления указаны от строки к столбцам, 
-# q1'=0 элементу массива, q5'=4 элементу массива
-# К каждому весу прибавлена +1
-matrix_change(arr)
-
-print('Вывод заполненного массива: ')
-print(arr)
-
-# Отрисовка автомата А', выбор финальных состояний
-
-graph1= Digraph(comment="Автомат А'")
-# Создание вершин q1-q5
-colors=['red']
-peak=np.zeros(5,int)
-peak=make_peaks(peak)
-num=int(1)
-make_graph(num,arr,graph1,colors,peak)
+def main():
+    """
+    **Основная функция работы программы: **
+    """
+    # Создание массива под автомат А'
+    arr=np.zeros(75, int).reshape(5,5,3)
+    print('Вывод нулевого массива: ')
+    print(arr)
+    print('Старт программы')
 
 
+    # Добавление весов и направлений в автомат А', направления указаны от строки к столбцам, 
+    # q1'=0 элементу массива, q5'=4 элементу массива
+    # К каждому весу прибавлена +1
+    matrix_change(arr)
 
-# a=int(input('q1 конечное состояние? 1 - да, 0 - нет: '))
-# b=int(input('q2 конечное состояние? 1 - да, 0 - нет: '))
-# c=int(input('q3 конечное состояние? 1 - да, 0 - нет: '))
-# d=int(input('q4 конечное состояние? 1 - да, 0 - нет: '))
-# e=int(input('q5 конечное состояние? 1 - да, 0 - нет: '))
+    print('Вывод заполненного массива: ')
+    print(arr)
 
-# Заполнение стоковыми значениями
-# Отрисовка автомата А' с дополнененным языком
-graph1= Digraph(comment="Автомат А'")
-# Создание вершин q1-q5
-# colors=['red']
-peak_reverse(peak)
-num=int(2)
-make_graph(num,arr,graph1,colors,peak)
+    # Отрисовка автомата А', выбор финальных состояний
 
-print('Завершение программы')
+    graph1= Digraph(comment="Автомат А'")
+    # Создание вершин q1-q5
+    colors=['red']
+    peak=np.zeros(5,int)
+    peak=make_peaks(peak)
+    num=int(1)
+    make_graph(num,arr,graph1,colors,peak)
+
+
+
+    # a=int(input('q1 конечное состояние? 1 - да, 0 - нет: '))
+    # b=int(input('q2 конечное состояние? 1 - да, 0 - нет: '))
+    # c=int(input('q3 конечное состояние? 1 - да, 0 - нет: '))
+    # d=int(input('q4 конечное состояние? 1 - да, 0 - нет: '))
+    # e=int(input('q5 конечное состояние? 1 - да, 0 - нет: '))
+
+    # Заполнение стоковыми значениями
+    # Отрисовка автомата А' с дополнененным языком
+    graph1= Digraph(comment="Автомат А'")
+    # Создание вершин q1-q5
+    # colors=['red']
+    peak_reverse(peak)
+    num=int(2)
+    make_graph(num,arr,graph1,colors,peak)
+
+    print('Завершение программы')
