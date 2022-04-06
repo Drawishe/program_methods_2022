@@ -1,0 +1,705 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>task2 API documentation</title>
+<meta name="description" content="**Документация к &#34;Конечные автоматы&#34;, Задание №2** …" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>task2</code></h1>
+</header>
+<section id="section-intro">
+<h1 id="no2"><strong>Документация к "Конечные автоматы", Задание №2</strong></h1>
+<h2 id="_1"><strong>Алгоритм реализует:</strong></h2>
+<ul>
+<li><em>функции объединения и пересечения двух заранее определенных автоматов Мура</em></li>
+<li><em>генерацию файлов с выводом начальных состояний двух автоматов
+и результат работы алгоритма в виде графов</em></li>
+</ul>
+<h2 id="_2"><strong>Содержание алгоритма:</strong></h2>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34;
+# **Документация к &#34;Конечные автоматы&#34;, Задание №2**
+
+## **Алгоритм реализует:**
+- *функции объединения и пересечения двух заранее определенных автоматов Мура*
+- *генерацию файлов с выводом начальных состояний двух автоматов
+и результат работы алгоритма в виде графов*
+
+## **Содержание алгоритма:**
+&#34;&#34;&#34;
+# from re import A
+import pydot
+from graphviz import Digraph
+import matplotlib.pyplot as plt
+import numpy as np
+from os import remove
+
+# Генерация 3-х мерной матрицы, заполненной 0
+def arrZero(i,j,z):
+    &#34;&#34;&#34;
+    **Создает пустой массив по заданному размеру матрицы**
+    &#34;&#34;&#34;
+    arr = np.zeros(((i*j*z)), int).reshape(i, j, z)
+    return arr
+
+
+def machArr(arr):
+    &#34;&#34;&#34;
+    **Заполняет автомат 1 A&#39;**   
+    &#34;&#34;&#34;
+    # arr
+    # Добавление весов и направлений в автомат А&#39;, направления указаны от строки к столбцам,
+    # q1&#39;=0 элементу массива, q5&#39;=4 элементу массива
+    # К каждому весу прибавлена +1
+
+    arr[0][1][0] = 1
+    arr[0][1][1] = 3
+    arr[0][2][0] = 2
+    arr[1][2][0] = 2
+    arr[1][3][0] = 1
+    arr[1][3][1] = 3
+    arr[2][0][0] = 3
+    arr[2][1][0] = 1
+    arr[2][4][0] = 2
+    arr[3][3][0] = 2
+    arr[3][4][0] = 1
+    arr[3][4][1] = 3
+    arr[4][2][0] = 3
+    arr[4][3][0] = 2
+    arr[4][4][0] = 1
+    return arr
+
+def machArr2(arr2):
+    &#34;&#34;&#34;
+    **Заполняет автомат 2 A&#39;&#39;**   
+    &#34;&#34;&#34;
+    # arr2
+    # Добавление весов и направлений в автомат А&#34;, направления указаны от строки к столбцам,
+    # q1&#34;=0 элементу массива, q4&#34;=3 элементу массива
+    # К каждому весу прибавлена +1
+    arr2[0][1][0] = 1
+    arr2[0][2][0] = 2
+    arr2[0][3][0] = 3
+    arr2[1][1][0] = 1
+    arr2[1][1][1] = 2
+    arr2[1][3][0] = 3
+    arr2[2][0][0] = 3
+    arr2[2][2][0] = 1
+    arr2[2][2][1] = 2
+    arr2[3][1][0] = 3
+    arr2[3][2][0] = 3
+    arr2[3][3][0] = 1
+    arr2[3][3][1] = 2
+    return arr2
+
+def machArr3(arr3):
+    &#34;&#34;&#34;
+    **Заполняет автомат 3 &#34;Объединение двух автоматов&#34;**   
+    &#34;&#34;&#34;
+    # Объединение автоматов
+    # Объединение автоматов - добавление новых дорог к уже имеющемуся A&#39;
+    
+    
+    # arr3
+    arr3[0][3][0] = 3
+    arr3[1][1][0] = 1
+    arr3[1][1][1] = 2
+    arr3[2][2][0] = 1
+    arr3[2][2][1] = 2
+    arr3[3][1][0] = 3
+    arr3[3][2][0] = 3
+    arr3[3][3][1] = 1
+    return arr3
+
+&#34;&#34;&#34;
+Пересечение двух автоматов
+&#34;&#34;&#34;
+def machArr4(arr4):
+    &#34;&#34;&#34;
+    **Заполняет автомат 4 &#34;Пересечение двух автоматов&#34;**   
+    &#34;&#34;&#34;
+    # arr4
+    arr4[0][1][0] = 1
+    arr4[0][2][0] = 2
+    arr4[1][3][0] = 3
+    arr4[2][0][0] = 3
+    arr4[3][3][0] = 2
+    return arr4
+
+
+def machArr5(arr5):
+    &#34;&#34;&#34;
+    **Заполняет автомат 5 &#34;Пересечение двух автоматов (2 способ)&#34;**
+    &#34;&#34;&#34;
+    # arr5
+    arr5[0][1][0] = 1
+    arr5[0][2][0] = 2
+    arr5[1][3][0] = 3
+    arr5[2][0][0] = 3
+    arr5[3][3][0] = 2
+    return arr5
+
+
+# Удаление лишних файлов
+def remove_cash(file_name):
+    &#34;&#34;&#34;
+    **Удаляет лишние файлы, которые были созданы в ходе работы алгоритмов**
+    &#34;&#34;&#34;
+    remove(f&#39;{file_name}.dot&#39;)
+
+
+# Блок отрисовки Графов
+ ## Вывод графа в файл
+def graphRender(graph,graph_name):
+    &#34;&#34;&#34;
+    **Отрисовывает построенный граф в png файл**
+    &#34;&#34;&#34;
+    # Вывод в файл graph5
+    # graph5.render(&#39;graph5.gv&#39;, view=True)
+    graph.save(f&#39;{graph_name}.dot&#39;, None)
+    (graph,) = pydot.graph_from_dot_file(f&#39;{graph_name}.dot&#39;)
+    graph.write_png(f&#39;task2_{graph_name}.png&#39;)
+    remove_cash(graph_name);
+
+
+# Делаю общую функцию на создание графа
+def create_graph(arr,arrNum,graphNum,graphHeader):
+    &#34;&#34;&#34;
+    **Создает граф автомата по заданным параметрам**
+    &#34;&#34;&#34;
+    graphName = graphNum
+    graphNum = Digraph(graphHeader)
+    for qNode in range(0, (arrNum.shape[0])):
+        # Отрисовка автомата пересечения дорог
+        # Создание вершин q1-q...
+        graphNum.node(f&#39;{qNode}&#39;,(f&#39;q{qNode+1}&#39;))
+
+    # Цикл заполнения переходов
+    for i in range(0, arrNum.shape[0]):
+        for j in range(0, arrNum.shape[1]):
+            for z in range(0, arrNum.shape[2]):
+                if arrNum[i][j][z] != 0:
+                    temp = arr[i][j][z]
+                    temp = temp-1
+                    graphNum.edge(f&#39;{i}&#39;,f&#39;{j}&#39;,f&#39;{temp}&#39;)
+
+    # Вывод графа в файл
+    graphRender(graphNum,graphName)
+
+
+def machine_A1(arr,arr2):
+    &#34;&#34;&#34;
+    **Отрисовывает первый автомат Мура A&#39;**
+    &#34;&#34;&#34;
+    # Отрисовка автомата А&#39;
+    graph1 = Digraph(comment=&#34;Автомат А&#39;&#34;)
+    # Создание вершин q1-q5
+    colors = [&#39;red&#39;]
+    graph1.node(&#39;0&#39;, &#39;q1&#39;)
+    graph1.node(&#39;1&#39;, &#39;q2&#39;)
+    graph1.node(&#39;2&#39;, &#39;q3&#39;, fillcolor=&#34;red&#34;, style=&#34;filled&#34;)
+    graph1.node(&#39;3&#39;, &#39;q4&#39;)
+    graph1.node(&#39;4&#39;, &#39;q5&#39;, fillcolor=&#34;red&#34;, style=&#34;filled&#34;)
+
+    # Цикл заполнения переходов
+    for i in range(0, 5):
+        for j in range(0, 5):
+            for z in range(0, 3):
+                if arr[i][j][z] != 0:
+                    temp = arr[i][j][z]
+                    temp = temp-1
+                    graph1.edge(&#39;%s&#39; % (i), &#39;%s&#39; % (j), &#39;%s&#39; % (temp))
+
+    # Вывод в файл graph1
+    # print(graph1.source)
+    # graph1.render(&#39;graph1.gv&#39;, view=True)
+    # graph1.save(&#39;graph1.dot&#39;, None)
+    # (graph1,) = pydot.graph_from_dot_file(&#39;graph1.dot&#39;)
+    # graph1.write_png(&#39;graph1.png&#39;)
+    graphRender(graph1,&#39;graph1&#39;)
+
+
+def machine_A2(arr,arr2):
+    &#34;&#34;&#34;
+    **Отрисовывает второй автомат Мура A&#39;&#39;**
+    &#34;&#34;&#34;
+
+    # Отрисовка автомата А&#34;
+    graph2 = Digraph(comment=&#34;Автомат А&#39;&#39;&#34;)
+    # Создание вершин q1-q4
+    graph2.node(&#39;0&#39;, &#39;q1&#39;)
+    graph2.node(&#39;1&#39;, &#39;q2&#39;)
+    graph2.node(&#39;2&#39;, &#39;q3&#39;, fillcolor=&#34;red&#34;, style=&#34;filled&#34;)
+    graph2.node(&#39;3&#39;, &#39;q4&#39;)
+
+
+    # Цикл заполнения переходов
+    for i in range(0, 4):
+        for j in range(0, 4):
+            for z in range(0, 3):
+                if arr[i][j][z] != 0:
+                    temp = arr2[i][j][z]
+                    temp = temp-1
+                    # graph2.edge(&#39;%s&#39; % (i), &#39;%s&#39; % (j), &#39;%s&#39; % (temp))
+                    graph2.edge(f&#39;{i}&#39;,f&#39;{j}&#39;,f&#39;{temp}&#39;)
+
+    graphRender(graph2,&#39;graph2&#39;)
+
+
+def main():
+    &#34;&#34;&#34;
+    **Начало работы программы**
+    &#34;&#34;&#34;
+    # Создание массива под автомат А&#39;
+    arr = arrZero(5,5,3)
+    arr = machArr(arr)
+    # Отрисовка графа первой машины
+    machine_A1(arr,arr)
+
+    # Создание массива под автомат А&#34;
+    arr2 = arrZero(4, 4, 3)
+    arr2 = machArr2(arr2)
+    # Отрисовка графа второй машины
+    machine_A2(arr,arr2)
+
+    # Объединение языков двух автоматов
+    arr3 = machArr3(arr)
+    # Отрисовка графа объединения автоматов
+    create_graph(arr,arr3,&#39;graph3&#39;,&#39;Объединенные автоматы&#39;)
+
+    # Пересечение языков двух автоматов (дороги и веса)
+    arr4 = arrZero(4,4,3)
+    arr4 = machArr4(arr4)
+    # Отрисовка автомата пересечения дорог и весов
+    create_graph(arr,arr4,&#39;graph4&#39;,&#39;Автомат пересечения дорог и весов&#39;)
+
+    # Пересечение языков двух автоматов (дороги)
+    arr5 = arrZero(4,4,3)
+    arr5 = machArr5(arr5)
+    # Отрисовка автомат пересечения дорог
+    create_graph(arr,arr5,&#39;graph5&#39;,&#39;Автомат пересечения дорог&#39;)
+    return
+
+
+# print(type(arr4.shape));
+# print(arr4.shape[0]);
+# Pdoc: python -m pdoc --html . --output-dir html/ --force
+# Pdoc single: python -m pdoc --html Eremin/Task_2.py --output-dir . --force
+# Pdoc group: python -m pdoc --html . --force</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="task2.arrZero"><code class="name flex">
+<span>def <span class="ident">arrZero</span></span>(<span>i, j, z)</span>
+</code></dt>
+<dd>
+<div class="desc"><p><strong>Создает пустой массив по заданному размеру матрицы</strong></p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def arrZero(i,j,z):
+    &#34;&#34;&#34;
+    **Создает пустой массив по заданному размеру матрицы**
+    &#34;&#34;&#34;
+    arr = np.zeros(((i*j*z)), int).reshape(i, j, z)
+    return arr</code></pre>
+</details>
+</dd>
+<dt id="task2.create_graph"><code class="name flex">
+<span>def <span class="ident">create_graph</span></span>(<span>arr, arrNum, graphNum, graphHeader)</span>
+</code></dt>
+<dd>
+<div class="desc"><p><strong>Создает граф автомата по заданным параметрам</strong></p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def create_graph(arr,arrNum,graphNum,graphHeader):
+    &#34;&#34;&#34;
+    **Создает граф автомата по заданным параметрам**
+    &#34;&#34;&#34;
+    graphName = graphNum
+    graphNum = Digraph(graphHeader)
+    for qNode in range(0, (arrNum.shape[0])):
+        # Отрисовка автомата пересечения дорог
+        # Создание вершин q1-q...
+        graphNum.node(f&#39;{qNode}&#39;,(f&#39;q{qNode+1}&#39;))
+
+    # Цикл заполнения переходов
+    for i in range(0, arrNum.shape[0]):
+        for j in range(0, arrNum.shape[1]):
+            for z in range(0, arrNum.shape[2]):
+                if arrNum[i][j][z] != 0:
+                    temp = arr[i][j][z]
+                    temp = temp-1
+                    graphNum.edge(f&#39;{i}&#39;,f&#39;{j}&#39;,f&#39;{temp}&#39;)
+
+    # Вывод графа в файл
+    graphRender(graphNum,graphName)</code></pre>
+</details>
+</dd>
+<dt id="task2.graphRender"><code class="name flex">
+<span>def <span class="ident">graphRender</span></span>(<span>graph, graph_name)</span>
+</code></dt>
+<dd>
+<div class="desc"><p><strong>Отрисовывает построенный граф в png файл</strong></p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def graphRender(graph,graph_name):
+    &#34;&#34;&#34;
+    **Отрисовывает построенный граф в png файл**
+    &#34;&#34;&#34;
+    # Вывод в файл graph5
+    # graph5.render(&#39;graph5.gv&#39;, view=True)
+    graph.save(f&#39;{graph_name}.dot&#39;, None)
+    (graph,) = pydot.graph_from_dot_file(f&#39;{graph_name}.dot&#39;)
+    graph.write_png(f&#39;task2_{graph_name}.png&#39;)
+    remove_cash(graph_name);</code></pre>
+</details>
+</dd>
+<dt id="task2.machArr"><code class="name flex">
+<span>def <span class="ident">machArr</span></span>(<span>arr)</span>
+</code></dt>
+<dd>
+<div class="desc"><p><strong>Заполняет автомат 1 A'</strong></p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def machArr(arr):
+    &#34;&#34;&#34;
+    **Заполняет автомат 1 A&#39;**   
+    &#34;&#34;&#34;
+    # arr
+    # Добавление весов и направлений в автомат А&#39;, направления указаны от строки к столбцам,
+    # q1&#39;=0 элементу массива, q5&#39;=4 элементу массива
+    # К каждому весу прибавлена +1
+
+    arr[0][1][0] = 1
+    arr[0][1][1] = 3
+    arr[0][2][0] = 2
+    arr[1][2][0] = 2
+    arr[1][3][0] = 1
+    arr[1][3][1] = 3
+    arr[2][0][0] = 3
+    arr[2][1][0] = 1
+    arr[2][4][0] = 2
+    arr[3][3][0] = 2
+    arr[3][4][0] = 1
+    arr[3][4][1] = 3
+    arr[4][2][0] = 3
+    arr[4][3][0] = 2
+    arr[4][4][0] = 1
+    return arr</code></pre>
+</details>
+</dd>
+<dt id="task2.machArr2"><code class="name flex">
+<span>def <span class="ident">machArr2</span></span>(<span>arr2)</span>
+</code></dt>
+<dd>
+<div class="desc"><p><strong>Заполняет автомат 2 A''</strong></p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def machArr2(arr2):
+    &#34;&#34;&#34;
+    **Заполняет автомат 2 A&#39;&#39;**   
+    &#34;&#34;&#34;
+    # arr2
+    # Добавление весов и направлений в автомат А&#34;, направления указаны от строки к столбцам,
+    # q1&#34;=0 элементу массива, q4&#34;=3 элементу массива
+    # К каждому весу прибавлена +1
+    arr2[0][1][0] = 1
+    arr2[0][2][0] = 2
+    arr2[0][3][0] = 3
+    arr2[1][1][0] = 1
+    arr2[1][1][1] = 2
+    arr2[1][3][0] = 3
+    arr2[2][0][0] = 3
+    arr2[2][2][0] = 1
+    arr2[2][2][1] = 2
+    arr2[3][1][0] = 3
+    arr2[3][2][0] = 3
+    arr2[3][3][0] = 1
+    arr2[3][3][1] = 2
+    return arr2</code></pre>
+</details>
+</dd>
+<dt id="task2.machArr3"><code class="name flex">
+<span>def <span class="ident">machArr3</span></span>(<span>arr3)</span>
+</code></dt>
+<dd>
+<div class="desc"><p><strong>Заполняет автомат 3 "Объединение двух автоматов"</strong></p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def machArr3(arr3):
+    &#34;&#34;&#34;
+    **Заполняет автомат 3 &#34;Объединение двух автоматов&#34;**   
+    &#34;&#34;&#34;
+    # Объединение автоматов
+    # Объединение автоматов - добавление новых дорог к уже имеющемуся A&#39;
+    
+    
+    # arr3
+    arr3[0][3][0] = 3
+    arr3[1][1][0] = 1
+    arr3[1][1][1] = 2
+    arr3[2][2][0] = 1
+    arr3[2][2][1] = 2
+    arr3[3][1][0] = 3
+    arr3[3][2][0] = 3
+    arr3[3][3][1] = 1
+    return arr3</code></pre>
+</details>
+</dd>
+<dt id="task2.machArr4"><code class="name flex">
+<span>def <span class="ident">machArr4</span></span>(<span>arr4)</span>
+</code></dt>
+<dd>
+<div class="desc"><p><strong>Заполняет автомат 4 "Пересечение двух автоматов"</strong></p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def machArr4(arr4):
+    &#34;&#34;&#34;
+    **Заполняет автомат 4 &#34;Пересечение двух автоматов&#34;**   
+    &#34;&#34;&#34;
+    # arr4
+    arr4[0][1][0] = 1
+    arr4[0][2][0] = 2
+    arr4[1][3][0] = 3
+    arr4[2][0][0] = 3
+    arr4[3][3][0] = 2
+    return arr4</code></pre>
+</details>
+</dd>
+<dt id="task2.machArr5"><code class="name flex">
+<span>def <span class="ident">machArr5</span></span>(<span>arr5)</span>
+</code></dt>
+<dd>
+<div class="desc"><p><strong>Заполняет автомат 5 "Пересечение двух автоматов (2 способ)"</strong></p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def machArr5(arr5):
+    &#34;&#34;&#34;
+    **Заполняет автомат 5 &#34;Пересечение двух автоматов (2 способ)&#34;**
+    &#34;&#34;&#34;
+    # arr5
+    arr5[0][1][0] = 1
+    arr5[0][2][0] = 2
+    arr5[1][3][0] = 3
+    arr5[2][0][0] = 3
+    arr5[3][3][0] = 2
+    return arr5</code></pre>
+</details>
+</dd>
+<dt id="task2.machine_A1"><code class="name flex">
+<span>def <span class="ident">machine_A1</span></span>(<span>arr, arr2)</span>
+</code></dt>
+<dd>
+<div class="desc"><p><strong>Отрисовывает первый автомат Мура A'</strong></p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def machine_A1(arr,arr2):
+    &#34;&#34;&#34;
+    **Отрисовывает первый автомат Мура A&#39;**
+    &#34;&#34;&#34;
+    # Отрисовка автомата А&#39;
+    graph1 = Digraph(comment=&#34;Автомат А&#39;&#34;)
+    # Создание вершин q1-q5
+    colors = [&#39;red&#39;]
+    graph1.node(&#39;0&#39;, &#39;q1&#39;)
+    graph1.node(&#39;1&#39;, &#39;q2&#39;)
+    graph1.node(&#39;2&#39;, &#39;q3&#39;, fillcolor=&#34;red&#34;, style=&#34;filled&#34;)
+    graph1.node(&#39;3&#39;, &#39;q4&#39;)
+    graph1.node(&#39;4&#39;, &#39;q5&#39;, fillcolor=&#34;red&#34;, style=&#34;filled&#34;)
+
+    # Цикл заполнения переходов
+    for i in range(0, 5):
+        for j in range(0, 5):
+            for z in range(0, 3):
+                if arr[i][j][z] != 0:
+                    temp = arr[i][j][z]
+                    temp = temp-1
+                    graph1.edge(&#39;%s&#39; % (i), &#39;%s&#39; % (j), &#39;%s&#39; % (temp))
+
+    # Вывод в файл graph1
+    # print(graph1.source)
+    # graph1.render(&#39;graph1.gv&#39;, view=True)
+    # graph1.save(&#39;graph1.dot&#39;, None)
+    # (graph1,) = pydot.graph_from_dot_file(&#39;graph1.dot&#39;)
+    # graph1.write_png(&#39;graph1.png&#39;)
+    graphRender(graph1,&#39;graph1&#39;)</code></pre>
+</details>
+</dd>
+<dt id="task2.machine_A2"><code class="name flex">
+<span>def <span class="ident">machine_A2</span></span>(<span>arr, arr2)</span>
+</code></dt>
+<dd>
+<div class="desc"><p><strong>Отрисовывает второй автомат Мура A''</strong></p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def machine_A2(arr,arr2):
+    &#34;&#34;&#34;
+    **Отрисовывает второй автомат Мура A&#39;&#39;**
+    &#34;&#34;&#34;
+
+    # Отрисовка автомата А&#34;
+    graph2 = Digraph(comment=&#34;Автомат А&#39;&#39;&#34;)
+    # Создание вершин q1-q4
+    graph2.node(&#39;0&#39;, &#39;q1&#39;)
+    graph2.node(&#39;1&#39;, &#39;q2&#39;)
+    graph2.node(&#39;2&#39;, &#39;q3&#39;, fillcolor=&#34;red&#34;, style=&#34;filled&#34;)
+    graph2.node(&#39;3&#39;, &#39;q4&#39;)
+
+
+    # Цикл заполнения переходов
+    for i in range(0, 4):
+        for j in range(0, 4):
+            for z in range(0, 3):
+                if arr[i][j][z] != 0:
+                    temp = arr2[i][j][z]
+                    temp = temp-1
+                    # graph2.edge(&#39;%s&#39; % (i), &#39;%s&#39; % (j), &#39;%s&#39; % (temp))
+                    graph2.edge(f&#39;{i}&#39;,f&#39;{j}&#39;,f&#39;{temp}&#39;)
+
+    graphRender(graph2,&#39;graph2&#39;)</code></pre>
+</details>
+</dd>
+<dt id="task2.main"><code class="name flex">
+<span>def <span class="ident">main</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p><strong>Начало работы программы</strong></p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def main():
+    &#34;&#34;&#34;
+    **Начало работы программы**
+    &#34;&#34;&#34;
+    # Создание массива под автомат А&#39;
+    arr = arrZero(5,5,3)
+    arr = machArr(arr)
+    # Отрисовка графа первой машины
+    machine_A1(arr,arr)
+
+    # Создание массива под автомат А&#34;
+    arr2 = arrZero(4, 4, 3)
+    arr2 = machArr2(arr2)
+    # Отрисовка графа второй машины
+    machine_A2(arr,arr2)
+
+    # Объединение языков двух автоматов
+    arr3 = machArr3(arr)
+    # Отрисовка графа объединения автоматов
+    create_graph(arr,arr3,&#39;graph3&#39;,&#39;Объединенные автоматы&#39;)
+
+    # Пересечение языков двух автоматов (дороги и веса)
+    arr4 = arrZero(4,4,3)
+    arr4 = machArr4(arr4)
+    # Отрисовка автомата пересечения дорог и весов
+    create_graph(arr,arr4,&#39;graph4&#39;,&#39;Автомат пересечения дорог и весов&#39;)
+
+    # Пересечение языков двух автоматов (дороги)
+    arr5 = arrZero(4,4,3)
+    arr5 = machArr5(arr5)
+    # Отрисовка автомат пересечения дорог
+    create_graph(arr,arr5,&#39;graph5&#39;,&#39;Автомат пересечения дорог&#39;)
+    return</code></pre>
+</details>
+</dd>
+<dt id="task2.remove_cash"><code class="name flex">
+<span>def <span class="ident">remove_cash</span></span>(<span>file_name)</span>
+</code></dt>
+<dd>
+<div class="desc"><p><strong>Удаляет лишние файлы, которые были созданы в ходе работы алгоритмов</strong></p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def remove_cash(file_name):
+    &#34;&#34;&#34;
+    **Удаляет лишние файлы, которые были созданы в ходе работы алгоритмов**
+    &#34;&#34;&#34;
+    remove(f&#39;{file_name}.dot&#39;)</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul>
+<li><a href="#no2">Документация к "Конечные автоматы", Задание №2</a><ul>
+<li><a href="#_1">Алгоритм реализует:</a></li>
+<li><a href="#_2">Содержание алгоритма:</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<ul id="index">
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="two-column">
+<li><code><a title="task2.arrZero" href="#task2.arrZero">arrZero</a></code></li>
+<li><code><a title="task2.create_graph" href="#task2.create_graph">create_graph</a></code></li>
+<li><code><a title="task2.graphRender" href="#task2.graphRender">graphRender</a></code></li>
+<li><code><a title="task2.machArr" href="#task2.machArr">machArr</a></code></li>
+<li><code><a title="task2.machArr2" href="#task2.machArr2">machArr2</a></code></li>
+<li><code><a title="task2.machArr3" href="#task2.machArr3">machArr3</a></code></li>
+<li><code><a title="task2.machArr4" href="#task2.machArr4">machArr4</a></code></li>
+<li><code><a title="task2.machArr5" href="#task2.machArr5">machArr5</a></code></li>
+<li><code><a title="task2.machine_A1" href="#task2.machine_A1">machine_A1</a></code></li>
+<li><code><a title="task2.machine_A2" href="#task2.machine_A2">machine_A2</a></code></li>
+<li><code><a title="task2.main" href="#task2.main">main</a></code></li>
+<li><code><a title="task2.remove_cash" href="#task2.remove_cash">remove_cash</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>
