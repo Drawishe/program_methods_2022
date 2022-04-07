@@ -78,11 +78,11 @@ def make_graph(num,arr,graph1,colors,peak):
                     temp = temp-1
                     graph1.edge(f'{i}',f'{j}',f'{temp}')
     
-    graph1.save(f'graph{num}.dot', None)
-    (graph1,) = pydot.graph_from_dot_file(f'graph{num}.dot')
-    graph1.write_png(f'graph{num}.png')
+    graph1.save(f'task3_graph{num}.dot', None)
+    (graph1,) = pydot.graph_from_dot_file(f'task3_graph{num}.dot')
+    graph1.write_png(f'task3_graph{num}.png')
     # display(Image(filename='graph1.png'))
-    os.remove(f'graph{num}.dot')
+    os.remove(f'task3_graph{num}.dot')
 
 
 
