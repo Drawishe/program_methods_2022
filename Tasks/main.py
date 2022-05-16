@@ -29,7 +29,7 @@ if __name__ == "__main__":
         if number == '1' or number =='kornienko':
             task1.main()
             print('task1 - Успешно\n')
-        if number == '2' or number == 'eremin':
+        elif number == '2' or number == 'eremin':
             task2.main()
             print('task2 - Выполнен успешно\n')
         elif number == '3' or number == 'furman':
