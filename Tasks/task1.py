@@ -182,4 +182,4 @@ def main():
     # Отрисовка автомата
     create_graph(arrMura,arrMura,'graphMura','Автомат Мура')
 #Вызов главной функции
-main()
+#main()
