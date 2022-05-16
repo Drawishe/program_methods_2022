@@ -1,5 +1,5 @@
 import sys
-import task3,task2# , task1
+import task3,task2, task1
 import os
 
 
@@ -26,9 +26,9 @@ if __name__ == "__main__":
 
     number = input('Выберите необходимую вам задачу: ')
     while number:
-        # if number == '1' or number =='kornienko':
-        # task1.main()
-        # print('task1 - Успешно\n')
+        if number == '1' or number =='kornienko':
+            task1.main()
+            print('task1 - Успешно\n')
         if number == '2' or number == 'eremin':
             task2.main()
             print('task2 - Выполнен успешно\n')
